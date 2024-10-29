@@ -10,7 +10,8 @@ public class Barrera {
     }
 
     public synchronized void esperar() {
-        listos++;
+        if (listos < tamanio)
+            listos++;
         while (listos < tamanio) {
             try {
                 wait();
